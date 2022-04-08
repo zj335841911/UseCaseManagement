@@ -109,4 +109,9 @@ server:
     mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
     min-response-size: 10240
 
+management:
+  health:
+    elasticsearch:
+      enabled: false
+
 

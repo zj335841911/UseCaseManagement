@@ -19,5 +19,11 @@ create database nt_zentao;
 use nt_zentao;
 依次执行ibizpms-core/src/main/resources/sql 下的sql语句，有报错直接跳过。
 
+后端启动：
+启动 ibizpms-boot/src/main/java/cn/ibizlab/pms/DevBootApplication.java
+启动若报错 edit configuration 中Shorten commend line 修改为JAR manifest
+JV启动参数可修改为-Xms512m -Xmn512m -Xmx2048m -XX:ReservedCodeCacheSize=240m -XX:+UseCompressedOops
+
+
 
 

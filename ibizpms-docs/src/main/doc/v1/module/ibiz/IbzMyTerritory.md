@@ -433,7 +433,7 @@ Timestamp
 | 项目 | 说明 |
 | ---- | ---- |
 | 类型 |  |
-| 值 | 0000-00-00 00:00:00 |
+| 值 | 1970-00-00 00:00:00 |
 
 - 取值范围/公式
 无
@@ -975,7 +975,7 @@ Timestamp
 | 项目 | 说明 |
 | ---- | ---- |
 | 类型 |  |
-| 值 | 0000-00-00 |
+| 值 | 1970-00-00 |
 
 - 取值范围/公式
 无
@@ -1163,7 +1163,7 @@ Timestamp
 | 项目 | 说明 |
 | ---- | ---- |
 | 类型 |  |
-| 值 | 0000-00-00 |
+| 值 | 1970-00-00 |
 
 - 取值范围/公式
 无
@@ -2381,7 +2381,7 @@ GROUP BY
 	t.assignedTo 
 	) t31 ON t1.account = t31.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
-	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
+	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '1970-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
 ### 数据查询-我的工作（MyWorkMob）
 #### 说明
@@ -2423,7 +2423,7 @@ GROUP BY
 	t.assignedTo 
 	) t31 ON t1.account = t31.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
-	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
+	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '1970-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
 ### 数据查询-我的工作（项目经理）（MyWorkPm）
 #### 说明

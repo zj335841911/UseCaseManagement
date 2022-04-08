@@ -4229,7 +4229,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '1970-00-00' 
 GROUP BY
 	t1.account,
 	t1.date 
@@ -4362,7 +4362,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '1970-00-00' 
 GROUP BY
 	t1.account,
 	t1.date 

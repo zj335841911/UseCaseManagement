@@ -337,12 +337,12 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
     /**
      * 时间默认值
      */
-    public static String DEFAULT_TIME = "0000-00-00 00:00:00";
+    public static String DEFAULT_TIME = "1970-00-00 00:00:00";
 
     /**
      * 日期默认值
      */
-    public static String DEFAULT_DATE = "0000-00-00";
+    public static String DEFAULT_DATE = "1970-00-00";
 
 
 

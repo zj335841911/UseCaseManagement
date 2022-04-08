@@ -1319,7 +1319,7 @@ SELECT DISTINCT YEAR
 FROM
 	zt_taskestimate t1 
 WHERE
-	t1.date <> '0000-00-00' 
+	t1.date <> '1970-00-00' 
 	) t1
 ```
 ### 数据查询-日志年（ActionYear）
@@ -1335,7 +1335,7 @@ WHERE
 #### SQL
 - MYSQL5
 ```SQL
-select t1.`YEAR`,concat(t1.`year`, '年') as yearname from (select DISTINCT year( t1.date ) AS `year` from zt_taskestimate t1 where t1.date <> '0000-00-00' ) t1
+select t1.`YEAR`,concat(t1.`year`, '年') as yearname from (select DISTINCT year( t1.date ) AS `year` from zt_taskestimate t1 where t1.date <> '1970-00-00' ) t1
 ```
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1437,7 +1437,7 @@ SELECT DISTINCT YEAR
 FROM
 	zt_taskestimate t1 left join zt_task t on t.id = t1.task
 WHERE
-	t1.date <> '0000-00-00' 
+	t1.date <> '1970-00-00' 
 	) t1
 ```
 ### 数据查询-日志年（项目）（ProjectActionYear）
@@ -1458,7 +1458,7 @@ SELECT
 	concat( t1.`year`, '年' ) AS yearname ,
 	t1.project
 FROM
-	( SELECT DISTINCT YEAR ( t1.date ) AS `year`,t.project FROM zt_taskestimate t1 left join zt_task t on t.id = t1.task WHERE t1.date <> '0000-00-00'  ) t1
+	( SELECT DISTINCT YEAR ( t1.date ) AS `year`,t.project FROM zt_taskestimate t1 left join zt_task t on t.id = t1.task WHERE t1.date <> '1970-00-00'  ) t1
 ```
 ### 数据查询-项目日志（ProjectTaskEstimate）
 #### 说明

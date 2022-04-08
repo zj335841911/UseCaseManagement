@@ -74,7 +74,7 @@ public class ImConference extends EntityMP implements Serializable {
     /**
      * openedDate
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`openeddate`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")

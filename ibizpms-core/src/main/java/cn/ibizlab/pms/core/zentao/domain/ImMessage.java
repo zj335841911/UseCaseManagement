@@ -74,7 +74,7 @@ public class ImMessage extends EntityMP implements Serializable {
     /**
      * date
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`date`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd HH:mm:ss")

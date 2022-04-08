@@ -650,7 +650,7 @@ t2.deadline,
 t2.ESTSTARTED,
 t2.type AS TASKTYPE,
 (CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND((ROUND(t2.`consumed`/( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE, 
-((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '1970-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
 from
 (SELECT
 t1.DATE,
@@ -689,7 +689,7 @@ t2.deadline,
 t2.ESTSTARTED,
 t2.type AS TASKTYPE,
 (CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND(( ROUND( t2.`consumed` /( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE,
-((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT( now(), '%Y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t2.deadline, now()), '天' ) ELSE '' END )) AS DELAYDAYS 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '1970-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT( now(), '%Y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t2.deadline, now()), '天' ) ELSE '' END )) AS DELAYDAYS 
 FROM
 (SELECT
 t1.DATE,
@@ -725,7 +725,7 @@ t2.deadline,
 t2.ESTSTARTED,
 t2.type AS TASKTYPE,
 (CONCAT_WS('', CASE WHEN t2.consumed = 0 OR t2.consumed IS NULL THEN '0' WHEN t2.`left` = 0 OR t2.`left` IS NULL THEN '100' ELSE ROUND((ROUND(t2.`consumed`/( t2.`left` + t2.consumed ), 2 )) * 100 ) END, '%')) AS PROGRESSRATE, 
-((CASE WHEN t2.deadline IS NULL OR t2.deadline = '0000-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
+((CASE WHEN t2.deadline IS NULL OR t2.deadline = '1970-00-00' OR t2.deadline = '1970-01-01' THEN '' WHEN t2.`status` IN ( 'wait', 'doing' ) AND t2.deadline < DATE_FORMAT(now(), '%Y-%m-%d') THEN CONCAT_WS('', '延期', TIMESTAMPDIFF(DAY, t2.deadline, now()), '天') ELSE '' END)) AS DELAYDAYS 
 from
 (SELECT
 t1.DATE,

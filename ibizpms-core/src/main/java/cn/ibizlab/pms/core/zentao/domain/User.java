@@ -114,7 +114,7 @@ public class User extends EntityMP implements Serializable {
     /**
      * locked
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`locked`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "locked", format = "yyyy-MM-dd HH:mm:ss")
@@ -268,7 +268,7 @@ public class User extends EntityMP implements Serializable {
     /**
      * 入职日期
      */
-    @DEField(defaultValue = "0000-00-00")
+    @DEField(defaultValue = "1970-00-00")
     @TableField(value = "`join`")
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "join", format = "yyyy-MM-dd")
@@ -294,7 +294,7 @@ public class User extends EntityMP implements Serializable {
     /**
      * birthday
      */
-    @DEField(defaultValue = "0000-00-00")
+    @DEField(defaultValue = "1970-00-00")
     @TableField(value = "`birthday`")
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "birthday", format = "yyyy-MM-dd")

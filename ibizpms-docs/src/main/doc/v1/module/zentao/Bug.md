@@ -3191,7 +3191,7 @@ Integer
 
 - 取值范围/公式
 ```SQL
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end)
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end)
 ```
 
 - 数据格式
@@ -3277,7 +3277,7 @@ String
 
 - 取值范围/公式
 ```SQL
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end)
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end)
 ```
 
 - 数据格式
@@ -3445,7 +3445,7 @@ String
 
 - 取值范围/公式
 ```SQL
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END )
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END )
 ```
 
 - 数据格式
@@ -4613,7 +4613,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -4698,7 +4698,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -4779,7 +4779,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -4856,7 +4856,7 @@ SELECT
 	t1.`TYPE`,
 	t1.`V1`,
 	case when t1.`status` = 'resolved' then '10' else '20' end as V2,
-	( CASE WHEN t1.DEADLINE = '0000-00-00' THEN 0 ELSE datediff( t1.deadline, now( ) ) END ) AS overduebugs 
+	( CASE WHEN t1.DEADLINE = '1970-00-00' THEN 0 ELSE datediff( t1.deadline, now( ) ) END ) AS overduebugs 
 FROM
 	`zt_bug` t1
 ```
@@ -4929,7 +4929,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 	where 
 	t1.DELETED = '0'  
@@ -4966,8 +4966,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -4989,7 +4989,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5101,7 +5101,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5211,7 +5211,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5299,7 +5299,7 @@ t1.`OPENEDBUILD`,
 t71.realname AS `OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5385,7 +5385,7 @@ t1.`OPENEDBUILD`,
 t71.realname as `OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5455,8 +5455,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -5478,7 +5478,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5565,7 +5565,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5651,7 +5651,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5740,7 +5740,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5829,7 +5829,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -5917,7 +5917,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6005,7 +6005,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6074,8 +6074,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -6097,7 +6097,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6149,7 +6149,7 @@ DEFAULT
 #### SQL
 - MYSQL5
 ```SQL
-SELECT t1.`ACTIVATEDCOUNT`, t1.`ACTIVATEDDATE`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BRANCH`, t61.`NAME` AS `BRANCHNAME`, t1.`BROWSER`, t1.`CASE`, t1.`CASEVERSION`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`COLOR`, t1.`CONFIRMED`, t1.`DEADLINE`, t1.`DELETED`, t1.`DUPLICATEBUG`, t1.`ENTRY`, t1.`FOUND`, t1.`HARDWARE`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'bug' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, t1.`KEYWORDS`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LINES`, t1.`LINKBUG`, t1.`MAILTO`, t1.`MODULE`, t51.`NAME` AS `MODULENAME`, (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root ) AS `MODULENAME1`, t1.`OPENEDBUILD`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`OS`, t1.`PLAN`, t1.`PRI`, t1.`PRODUCT`, t11.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t21.`NAME` AS `PROJECTNAME`, t1.`REPO`, t1.`REPOTYPE`, t1.`RESOLUTION`, t1.`RESOLVEDBUILD`, t1.`RESOLVEDBY`, t1.`RESOLVEDDATE`, t1.`RESULT`, t1.`SEVERITY`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TASK`, t41.`NAME` AS `TASKNAME`, t1.`TESTTASK`, t1.`TITLE`, t1.`TOSTORY`, t1.`TOTASK`, t1.`TYPE`, t1.`V1`, t1.`V2`, (case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '0000-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'active'  				AND t1.deadline < DATE_FORMAT( now(), '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, now()), '天' ) ELSE ''  			END ) AS `DELAY`,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '0000-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'resolved'  				AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  			END ) AS `DELAYRESOLVE` FROM `zt_bug` t1  LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID  LEFT JOIN zt_story t31 ON t1.STORY = t31.ID  LEFT JOIN zt_task t41 ON t1.TASK = t41.ID  LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID  LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
+SELECT t1.`ACTIVATEDCOUNT`, t1.`ACTIVATEDDATE`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BRANCH`, t61.`NAME` AS `BRANCHNAME`, t1.`BROWSER`, t1.`CASE`, t1.`CASEVERSION`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`COLOR`, t1.`CONFIRMED`, t1.`DEADLINE`, t1.`DELETED`, t1.`DUPLICATEBUG`, t1.`ENTRY`, t1.`FOUND`, t1.`HARDWARE`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'bug' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, t1.`KEYWORDS`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LINES`, t1.`LINKBUG`, t1.`MAILTO`, t1.`MODULE`, t51.`NAME` AS `MODULENAME`, (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root ) AS `MODULENAME1`, t1.`OPENEDBUILD`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`OS`, t1.`PLAN`, t1.`PRI`, t1.`PRODUCT`, t11.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t21.`NAME` AS `PROJECTNAME`, t1.`REPO`, t1.`REPOTYPE`, t1.`RESOLUTION`, t1.`RESOLVEDBUILD`, t1.`RESOLVEDBY`, t1.`RESOLVEDDATE`, t1.`RESULT`, t1.`SEVERITY`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TASK`, t41.`NAME` AS `TASKNAME`, t1.`TESTTASK`, t1.`TITLE`, t1.`TOSTORY`, t1.`TOTASK`, t1.`TYPE`, t1.`V1`, t1.`V2`, (case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '1970-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'active'  				AND t1.deadline < DATE_FORMAT( now(), '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, now()), '天' ) ELSE ''  			END ) AS `DELAY`,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '1970-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'resolved'  				AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  			END ) AS `DELAYRESOLVE` FROM `zt_bug` t1  LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID  LEFT JOIN zt_story t31 ON t1.STORY = t31.ID  LEFT JOIN zt_task t41 ON t1.TASK = t41.ID  LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID  LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
 ```
 ### 数据查询-ES批量的导入（ESBulk）
 #### 说明
@@ -6251,9 +6251,9 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs, 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs, 
 ( CASE WHEN t1.deadline IS NULL 
-			OR t1.deadline = '0000-00-00' 
+			OR t1.deadline = '1970-00-00' 
 			OR t1.deadline = '1970-01-01' THEN
 				'' 
 				WHEN t1.`status` = 'active' 
@@ -6261,7 +6261,7 @@ t1.`V2`,
 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, now()), '天' ) ELSE '' 
 			END ) AS `DELAY`, 
 ( CASE WHEN t1.deadline IS NULL 
-			OR t1.deadline = '0000-00-00' 
+			OR t1.deadline = '1970-00-00' 
 			OR t1.deadline = '1970-01-01' THEN
 				'' 
 				WHEN t1.`status` = 'resolved' 
@@ -6306,8 +6306,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -6329,7 +6329,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6444,7 +6444,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -6503,7 +6503,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6614,7 +6614,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -6693,7 +6693,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -6729,8 +6729,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -6752,7 +6752,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6820,8 +6820,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -6843,7 +6843,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -6954,7 +6954,7 @@ t1.`TOTASK`,
 t1.`TYPE`,
 t1.`V1`,
 t1.`V2`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs 
 FROM `zt_bug` t1 
 LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
 LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
@@ -6990,8 +6990,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -7013,7 +7013,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -7100,7 +7100,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,
@@ -7225,8 +7225,8 @@ t1.`CLOSEDDATE`,
 t1.`COLOR`,
 t1.`CONFIRMED`,
 t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
+(case when t1.deadline is null or t1.deadline = '1970-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
+( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '1970-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
 t1.`DELETED`,
 t1.`DUPLICATEBUG`,
 t1.`ENTRY`,
@@ -7248,7 +7248,7 @@ t1.`OPENEDBUILD`,
 t1.`OPENEDBY`,
 t1.`OPENEDDATE`,
 t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
+(case when t1.DEADLINE = '1970-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
 t1.`PLAN`,
 t1.`PRI`,
 t1.`PRODUCT`,

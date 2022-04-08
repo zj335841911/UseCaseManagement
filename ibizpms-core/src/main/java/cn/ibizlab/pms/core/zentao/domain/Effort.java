@@ -74,7 +74,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * end
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`end`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd HH:mm:ss")
@@ -134,7 +134,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * begin
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`begin`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd HH:mm:ss")

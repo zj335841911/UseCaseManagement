@@ -85,7 +85,7 @@ public class IBZZTUserService implements AuthenticationUserService{
 //        user.setEmail(userJO.getString("email"));
 //        user.setAvatar(userJO.getString("avatar"));
 //        user.setNickname(userJO.getString("nickname"));
-//        if (userJO.getString("birthday") == null || userJO.getString("birthday").isEmpty() || "0000-00-00".equals(userJO.getString("birthday"))) {
+//        if (userJO.getString("birthday") == null || userJO.getString("birthday").isEmpty() || "1970-00-00".equals(userJO.getString("birthday"))) {
 //            user.setBirthday(null);
 //        } else {
 //            user.setBirthday(userJO.getTimestamp("birthday"));

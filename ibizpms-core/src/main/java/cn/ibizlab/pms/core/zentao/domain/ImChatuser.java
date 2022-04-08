@@ -91,7 +91,7 @@ public class ImChatuser extends EntityMP implements Serializable {
     /**
      * join
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`join`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "join", format = "yyyy-MM-dd HH:mm:ss")
@@ -126,7 +126,7 @@ public class ImChatuser extends EntityMP implements Serializable {
     /**
      * quit
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`quit`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "quit", format = "yyyy-MM-dd HH:mm:ss")

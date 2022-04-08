@@ -66,7 +66,7 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     /**
      * 加盟日
      */
-    @DEField(defaultValue = "0000-00-00")
+    @DEField(defaultValue = "1970-00-00")
     @TableField(value = "`join`")
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "join", format = "yyyy-MM-dd")

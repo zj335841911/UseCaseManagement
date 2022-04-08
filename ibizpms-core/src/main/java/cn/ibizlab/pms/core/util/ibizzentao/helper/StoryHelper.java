@@ -922,9 +922,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 story1.setAssigneddate(timestamp);
                 story1.setClosedby("");
                 story1.setClosedreason("");
-                story1.set("Closeddate", "0000-00-00");
+                story1.set("Closeddate", "1970-00-00");
                 story1.setReviewedby("");
-                story1.set("reviewedDate", "0000-00-00");
+                story1.set("reviewedDate", "1970-00-00");
             } else if (StaticDict.Story__status.CLOSED.getValue().equals(parentStatus)) {
                 story1.setAssignedto(StaticDict.Assignedto_closed.CLOSED.getValue());
                 story1.setAssigneddate(timestamp);

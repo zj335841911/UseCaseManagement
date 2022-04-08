@@ -65,7 +65,7 @@ public class ImChat extends EntityMP implements Serializable {
     /**
      * editedDate
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`editeddate`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "editeddate", format = "yyyy-MM-dd HH:mm:ss")
@@ -75,7 +75,7 @@ public class ImChat extends EntityMP implements Serializable {
     /**
      * dismissDate
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`dismissdate`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "dismissdate", format = "yyyy-MM-dd HH:mm:ss")
@@ -85,7 +85,7 @@ public class ImChat extends EntityMP implements Serializable {
     /**
      * createdDate
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`createddate`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
@@ -155,7 +155,7 @@ public class ImChat extends EntityMP implements Serializable {
     /**
      * lastActiveTime
      */
-    @DEField(defaultValue = "0000-00-00 00:00:00")
+    @DEField(defaultValue = "1970-00-00 00:00:00")
     @TableField(value = "`lastactivetime`")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastactivetime", format = "yyyy-MM-dd HH:mm:ss")

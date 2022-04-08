@@ -15,9 +15,7 @@ yarn serve
 后端搭建：
 jdk 1.8
 mysql8
-create database nt_zentao;
-use nt_zentao;
-依次执行ibizpms-core/src/main/resources/sql 下的sql语句，有报错直接跳过。
+执行nt_doc\初始化sql.sql。
 
 后端启动：
 启动 ibizpms-boot/src/main/java/cn/ibizlab/pms/DevBootApplication.java

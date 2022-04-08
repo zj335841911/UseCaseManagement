@@ -1,0 +1,23 @@
+
+前端搭建：
+一、先安装nodejs版本（v16.14.2）
+
+二、安装yarn：
+1、运行 Windows PowerShell（管理员），执行命令set-ExecutionPolicy RemoteSigned更改 PowerShell 执行策略，过程中提示询问是否要更改执行策略?，选择 A 或 Y 。
+2、设置完毕，检验执行yarn config get registry命令，可正常加载执行脚本。
+3、使用get-ExecutionPolicy命令，可查看当前 PowerShell 执行策略类型。
+4、yarn global add @vue/cli
+5、yarn install
+
+三、运行
+yarn serve
+
+后端搭建：
+jdk 1.8
+mysql8
+create database nt_zentao;
+use nt_zentao;
+依次执行ibizpms-core/src/main/resources/sql 下的sql语句，有报错直接跳过。
+
+
+

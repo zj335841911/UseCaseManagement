@@ -1,0 +1,6 @@
+server:
+  port: 30120
+#Log配置
+logging:
+  level:
+    cn.ibizlab.pms: info
